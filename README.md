@@ -10,3 +10,28 @@ In this command, we're running a Docker container named microservices based on t
 
 Assuming that your Node.js application reads the PORT and RESPONSE environment variables to start the server with the specified port number and response message, this docker run command should start all three microservices and make them accessible on the host machine on ports 3000, 3001, and 3002.
 
+# Check how much resources a contaier is using 
+
+You can use the top command on Ubuntu to see how much CPU and memory each microservice is using. 
+
+Open a terminal window on Ubuntu.
+
+Run the following command to list the running Docker containers and their container IDs:
+
+# docker ps
+
+This will show you a list of running Docker containers along with their container IDs, names, images, and other details.
+
+Note the container ID of the microservices container that you want to check the resource usage for.
+
+Run the following command to open the top utility and filter the output by the container ID:
+
+# top -p $(docker inspect --format {{.State.Pid}} <container-id>)
+  
+Replace <container-id> with the actual container ID from step 3.
+
+This will open the top utility and show you the resource usage (CPU, memory, etc.) for the processes running inside the specified Docker container.
+
+Note that the top utility updates in real-time, so you can monitor the resource usage over time to see how it changes.
+
+When you're done monitoring the resource usage, you can exit the `top
