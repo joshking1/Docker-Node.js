@@ -10,6 +10,16 @@ In this command, we're running a Docker container named microservices based on t
 
 Assuming that your Node.js application reads the PORT and RESPONSE environment variables to start the server with the specified port number and response message, this docker run command should start all three microservices and make them accessible on the host machine on ports 3000, 3001, and 3002.
 
+# Can you run multiples microservices in single container 
+
+Technically, it is possible to run multiple microservices in a single container, but it is not considered a best practice. The main reason for this is that microservices are designed to be independent and decoupled, and running multiple microservices in a single container would violate this principle.
+
+Running multiple microservices in a single container would also make it difficult to scale and manage them independently. For example, if one microservice needs more resources than the others, you would have to scale the entire container, which could result in wasted resources for the other microservices.
+
+Additionally, running multiple microservices in a single container could introduce security and reliability risks. If one microservice crashes or experiences a security breach, it could potentially affect the other microservices running in the same container.
+
+Therefore, it is generally recommended to run each microservice in its own container, which provides better isolation, scalability, and manageability. You can use container orchestration tools like Docker Compose, Kubernetes, or Docker Swarm to manage multiple containers and microservices as a single application.
+
 # Check how much resources a contaier is using 
 
 You can use the top command on Ubuntu to see how much CPU and memory each microservice is using. 
