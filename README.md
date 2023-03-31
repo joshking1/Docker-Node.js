@@ -35,3 +35,52 @@ This will open the top utility and show you the resource usage (CPU, memory, etc
 Note that the top utility updates in real-time, so you can monitor the resource usage over time to see how it changes.
 
 When you're done monitoring the resource usage, you can exit the `top
+
+  
+# Remove a running container 
+
+If you have a container that is consuming the most resources on your server and you want to remove it, you can use the docker rm command to remove the container. 
+
+Open a terminal window on your server.
+
+Use the docker ps command to list all running containers:
+
+# docker ps
+  
+This will show you a list of running Docker containers along with their container IDs, names, images, and other details.
+
+Identify the container that is consuming the most resources by looking at the CPU% and MEM USAGE columns in the output of the docker ps command.
+
+Use the docker stop command to stop the container:
+
+# docker stop <container-id>
+  
+Replace <container-id> with the actual container ID of the container you want to stop.
+
+This will stop the container, freeing up the resources it was consuming.
+
+Use the docker rm command to remove the container:
+
+# docker rm <container-id>
+  
+Replace <container-id> with the actual container ID of the container you want to remove.
+
+This will remove the container from your server, freeing up any disk space it was using.
+
+Note that if you want to remove a container that is still running, you'll need to stop it first using the docker stop command before you can remove it using the docker rm command.
+
+Also, be careful when removing containers, as any data or changes made inside the container will be lost once it is removed.
+  
+# Remove Docker images
+
+To remove all Docker images from your local Docker registry, you can use the docker rmi command with a combination of $(docker images -q) and --force flags. Here's the command:
+
+# docker rmi $(docker images -q) --force
+  
+This command will first list all Docker image IDs using docker images -q, and then remove all those images using docker rmi. The --force flag is added to force removal of the images without asking for confirmation.
+
+Note that this command will remove all Docker images from your local registry, including ones that are in use by running containers. If you want to remove only unused images, you can add the --filter dangling=true flag to the docker images command to list only unused images, like this:
+
+# docker rmi $(docker images -q --filter dangling=true) --force
+  
+This command will remove only the unused Docker images from your local registry.
