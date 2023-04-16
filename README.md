@@ -1,3 +1,21 @@
+# Setup Dockerhub Login Credentials Securely as Environment Variables 
+
+When you run the script, it will need to authenticate with your Docker Hub account to be able to push the Docker image to Docker Hub. 
+To do this securely, we use environment variables to store the Docker Hub credentials.
+An environment variable is a variable that is set in the terminal session and is accessible to any program running in that session. 
+In this case, we set the environment variables DOCKER_USERNAME and DOCKER_PASSWORD to store your Docker Hub credentials. 
+The export command is used to make these variables available to any child processes of the terminal session.
+To set these environment variables on your terminal, you can run the following two commands, replacing josh1956 with your Docker Hub username and Josh@12345 with your Docker Hub password:
+
+# Commands to run 
+
+export DOCKER_USERNAME=josh1956
+export DOCKER_PASSWORD=Josh@12345
+
+This will set the DOCKER_USERNAME and DOCKER_PASSWORD environment variables to your Docker Hub credentials. 
+
+Once set, your script can reference these variables to authenticate with Docker Hub and push the Docker image.
+
 # Docker-Node.js
 
 docker run -d -p 3000:3000 -p 3001:3001 -p 3002:3002 \
