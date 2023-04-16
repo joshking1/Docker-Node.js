@@ -9,8 +9,9 @@ To set these environment variables on your terminal, you can run the following t
 
 # Commands to run 
 
-export DOCKER_USERNAME=josh1956
-export DOCKER_PASSWORD=Josh@12345
+$ export DOCKER_USERNAME=josh1956
+
+$ export DOCKER_PASSWORD=Josh@12345
 
 This will set the DOCKER_USERNAME and DOCKER_PASSWORD environment variables to your Docker Hub credentials. 
 
