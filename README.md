@@ -17,6 +17,12 @@ This will set the DOCKER_USERNAME and DOCKER_PASSWORD environment variables to y
 
 Once set, your script can reference these variables to authenticate with Docker Hub and push the Docker image.
 
+In this script, we use the $DOCKER_USERNAME and $DOCKER_PASSWORD variables to pass the Docker Hub credentials to the docker login command. 
+
+The $ prefix tells the bash shell to substitute the value of the variable at runtime.
+
+Note that the export command is used to make the DOCKER_USERNAME and DOCKER_PASSWORD variables available as environment variables throughout the execution of the script.
+
 # Docker-Node.js
 
 docker run -d -p 3000:3000 -p 3001:3001 -p 3002:3002 \
