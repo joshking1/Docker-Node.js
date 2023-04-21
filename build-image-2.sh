@@ -33,7 +33,11 @@ fi
 git clone https://github.com/joshking1/Docker-Node.js.git
 
 # Change directory to Docker-Node.js
-cd Docker-Node.js
+
+
+# Note that the script first checks for the presence of each tool using the command -v command. 
+# If the tool is not found, it installs it using sudo apt-get install -y. 
+# The script then proceeds with cloning the Git repository, building and tagging the Docker image, and pushing it to Docker Hub.
 
 # Build the Docker image
 docker build -t king-httpd .
