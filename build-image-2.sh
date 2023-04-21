@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Update packages and install security patches
+sudo apt-get update
+sudo apt-get upgrade -y
+
 # Check for and install Docker
 if command -v docker &> /dev/null; then
     echo "Docker is already installed"
