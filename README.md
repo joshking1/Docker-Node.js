@@ -45,7 +45,7 @@ Additionally, running multiple microservices in a single container could introdu
 
 Therefore, it is generally recommended to run each microservice in its own container, which provides better isolation, scalability, and manageability. You can use container orchestration tools like Docker Compose, Kubernetes, or Docker Swarm to manage multiple containers and microservices as a single application.
 
-# Check how much resources a contaier is using 
+# Check how much resources a container is using 
 
 You can use the top command on Ubuntu to see how much CPU and memory each microservice is using. 
 
